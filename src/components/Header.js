@@ -20,7 +20,7 @@ const Header = () => {
       setLoggedIn(false);
 
       // 3. navigate to login page
-      navigate('/signin');
+      navigate('/login');
   }
 
   return (
@@ -58,7 +58,7 @@ const Header = () => {
             {
               !loggedIn ?
               <li className="nav-item">
-                <NavLink className="btn btn-primary" to="/signin">Login Now</NavLink>
+                <NavLink className="btn btn-primary" to="/login">Login Now</NavLink>
               </li>
               :
               <button onClick={logout} className="btn btn-danger">Logout</button>

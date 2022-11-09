@@ -1,4 +1,4 @@
-import { Button, TextField } from "@mui/material"
+
 import { Formik } from "formik"
 import React from "react"
 import { useNavigate } from "react-router-dom"
@@ -49,11 +49,11 @@ const Register = () => {
         onSubmit={userSubmit}>
         {({ values, handleChange, handleSubmit }) => (
           <form onSubmit={handleSubmit}>
-            <TextField label="Username" id="username" onChange={handleChange} value={values.username} />
-            <TextField label="Email Address" id="email" onChange={handleChange} value={values.email} />
-            <TextField type="password" label="Password" id="password" onChange={handleChange} value={values.password} />
+            <input placeholder="username" id="username" onChange={handleChange} value={values.username} />
+            <input placeholder="email" id="email" onChange={handleChange} value={values.email} />
+            <input placeholder="password" type="password" label="Password" id="password" onChange={handleChange} value={values.password} />
 
-            <Button type="submit">Submit</Button>
+            <button className="btn btn-primary" type="submit">Submit</button>
           </form>
         )}
       </Formik>

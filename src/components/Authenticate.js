@@ -1,4 +1,4 @@
-import { Button, TextField } from "@mui/material"
+
 import { Formik } from "formik"
 import React, { useContext } from "react"
 import { useNavigate } from "react-router-dom"
@@ -33,7 +33,7 @@ const Authenticate = () => {
       // this will store user data in session
       sessionStorage.setItem("user", JSON.stringify(data))
       navigate("/home")
-    } else if (response.status === 300) {
+    } else if (response.status === 400) {
       Swal.fire({
         icon: "error",
         title: "Failed",
@@ -52,10 +52,10 @@ const Authenticate = () => {
         onSubmit={userSubmit}>
         {({ values, handleChange, handleSubmit }) => (
           <form onSubmit={handleSubmit}>
-            <TextField label="Email Address" id="email" onChange={handleChange} value={values.email} />
-            <TextField type="password" label="Password" id="password" onChange={handleChange} value={values.password} />
+            <input placeholder="email address" label="Email Address" id="email" onChange={handleChange} value={values.email} />
+            <input placeholder="password" type="password" label="Password" id="password" onChange={handleChange} value={values.password} />
 
-            <Button type="submit">Submit</Button>
+            <button type="submit">Submit</button>
           </form>
         )}
       </Formik>

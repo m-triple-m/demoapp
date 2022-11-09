@@ -16,8 +16,7 @@ function App() {
         <Routes>
           <Route element={<Navigate to="/login" />} path="/" />
           <Route element={<Authenticate />} path="login" />
-          <Route element={<Register />} path="register" />
-          <Route element={<Navigate to="/notfound" />} path="*" />
+          <Route element={<Register />} path="signup" />
         </Routes>
       </BrowserRouter>
     </AppProvider>
