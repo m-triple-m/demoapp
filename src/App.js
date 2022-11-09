@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react"
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
+import "./App.css"
+import { AppProvider } from "./AppContext"
+import Authenticate from "./components/Authenticate"
+import Header from "./components/Header"
+import Register from "./components/Register"
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem("user")))
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <AppProvider currentUser={currentUser}>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route element={<Navigate to="/login" />} path="/" />
+          <Route element={<Authenticate />} path="login" />
+          <Route element={<Register />} path="register" />
+          <Route element={<Navigate to="/notfound" />} path="*" />
+        </Routes>
+      </BrowserRouter>
+    </AppProvider>
+  )
 }
 
-export default App;
+export default App
