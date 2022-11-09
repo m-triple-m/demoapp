@@ -32,7 +32,7 @@ const Authenticate = () => {
       setLoggedIn(true)
       // this will store user data in session
       sessionStorage.setItem("user", JSON.stringify(data))
-      navigate("/home")
+      navigate("/logoutpage")
     } else if (response.status === 400) {
       Swal.fire({
         icon: "error",

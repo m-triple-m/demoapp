@@ -4,6 +4,7 @@ import "./App.css"
 import { AppProvider } from "./AppContext"
 import Authenticate from "./components/Authenticate"
 import Header from "./components/Header"
+import Logout from "./components/Logout"
 import Register from "./components/Register"
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route element={<Navigate to="/login" />} path="/" />
           <Route element={<Authenticate />} path="login" />
           <Route element={<Register />} path="signup" />
+          <Route element={<Logout />} path="logoutpage" />
         </Routes>
       </BrowserRouter>
     </AppProvider>
